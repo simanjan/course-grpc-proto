@@ -1,4 +1,7 @@
 # Replace this with your own github.com/<username>/<repository>
+# ./proto/bank/*.proto ./proto/bank/type/*.proto \
+#	./proto/resiliency/*.proto \
+
 GO_MODULE := github.com/simanjan/course-grpc-proto
 
 .PHONY: clean
@@ -17,8 +20,6 @@ protoc-go:
 	protoc --go_opt=module=${GO_MODULE} --go_out=. \
 	--go-grpc_opt=module=${GO_MODULE} --go-grpc_out=. \
 	./proto/hello/*.proto ./proto/payment/*.proto ./proto/transaction/*.proto \
-	./proto/bank/*.proto ./proto/bank/type/*.proto \
-	./proto/resiliency/*.proto \
 
 .PHONY: build
 build: clean protoc-go
